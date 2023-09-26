@@ -7,85 +7,35 @@
 </head>
 
 <body>
-    
+    <h1>
+        <?php
+            echo('Llista de cursos')
+        ?>    
+    </h1>
     <?php
-        $name = 'Kurt';
-        $lastname = 'Cagle';
-        $age = 40; 
-        $fecha = date_create();
-        date_date_set($fecha, 1983, 05, 12);
-        $tlfnum = array(654332211, 933332211);
-        $street = 'Carrer de turin, 15';
-        $mail = 'kurt.cagle@example.com';
-        $work = true;
-        $height = 1.67;
-     
+        define('IVA', 0.21);  // IVA del 21%
+
+        $cursos = array(
+            array("ID" => 1, "NOM" => "PHP", "DESC" => "Introducció a PHP", "PREU" => 15.5),
+            array("ID" => 2, "NOM" => "Laravel", "DESC" => "Laravel per experts", "PREU" => 30),
+            array("ID" => 3, "NOM" => "Django", "DESC" => "Dominant Django", "PREU" => 10)
+        );
+    ?>
+    <?php
+        foreach ($cursos as $curs) {
+            echo "Nom del curs: " . $curs["NOM"] . "\n";
+            echo "Descripció: " . $curs["DESC"] . "\n";
+    
+        $preuIVA = $curs["PREU"] * IVA;
+            echo "Preu de l'IVA: " . $preuIVA . "\n";
+    
+            // Definir la imatge a mostrar per pantalla
+            // Això depèn de com es vol mostrar l'imatge. Aquí es mostra un exemple amb una ruta d'imatge fictícia.
+            echo 'alt="' . $curs["NOM"] . '">';
+}
 
     ?>
-    <h1>
-    <?php
-        echo "Descrivint a $name";
-    ?>
-    </h1>
-    <h2>
-    <?php
-        echo "Les dades de $name son:";
-    ?>
-    </h2>
-    <ul>
-        <li>
-            <?php
-                 echo "Es diu: $name";
-            ?>
-        </li>
-        <li>
-            <?php
-                 echo "Te $age anys";
-            ?>
-        </li>
-        <li>
-            <?php
-                echo "Va neixer l'any: ";
-            ?>
-                <b>
-                    <?php
-                    echo date_format($fecha, 'Y-m-d');
-                    ?>
-                </b>
-        </li>
-        <li>
-            <?php
-                 echo "Els seus telèfons són: $tlfnum[0] - $tlfnum[1]";
-            ?>
-        </li>
-        <li>
-            <?php
-                 echo "Els seus telèfons són:";
-            ?>
-        </li>
-        <li>
-            <?php
-                 echo "Viu a: $street";
-            ?>
-        </li>
-        <li>
-            <?php
-                 echo "El seu mail és: $mail";
-            ?>
-        </li>
-        <li>
-            <?php
-                echo "Treballa: ";
-            ?>
-            <?php
-                echo $work ? 'Si' : 'No';
-            ?>
-        </li>
-        <li>
-            <?php
-                 echo "I medeix: $height";
-            ?>
-        </li>
-    </ul>
+    
+
 </body>
 </html>
